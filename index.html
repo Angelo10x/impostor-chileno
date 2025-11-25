@@ -1,349 +1,93 @@
-/* Reset Básico y Ajustes Globales */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* Elimina el flash azul al tocar botones en Android/iOS */
-  -webkit-tap-highlight-color: transparent;
-}
-
-body {
-  /* Fondo fijo que cubre todo sin importar la relación de aspecto (16:9 o 9:16) */
-  background: url("https://wallpapers.com/images/hd/solid-purple-pqd0pmus09eh4x9e.jpg") no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Arial', sans-serif;
-  color: white;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* dvh se adapta dinámicamente a las barras de navegación móviles */
-  min-height: 100dvh; 
-  flex-direction: column; 
-  overflow: hidden; 
-  position: fixed; /* Evita rebote de scroll en iOS */
-  width: 100%;
-}
-
-/* El contenedor principal: Se adapta al centro */
-.container {
-  background-color: rgba(0, 0, 0, 0.85);
-  border-radius: 10px;
-  padding: 20px;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Impostor Chileno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
   
-  /* ADAPTACIÓN RESPONSIVA: */
-  width: 90%;          /* Ocupa el 90% del ancho en móviles */
-  max-width: 400px;    /* Pero nunca pasa de 400px en PC (formato tarjeta) */
-  max-height: 85dvh;   /* Deja espacio vertical para que no toque los bordes */
-  
-  overflow-y: auto;    /* Scroll interno si el contenido es muy alto */
-  -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
-  box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
-  position: relative;
-  transition: padding 0.3s ease;
-  z-index: 10; 
-  /* Espacio inferior extra para que el botón flotante no tape contenido al hacer scroll */
-  padding-bottom: 80px; 
-}
+  <div id="countdownFiveMinutes" style="display:none;">
+      <h2 id="fiveMinuteCountdown">05:00</h2>
+  </div>
 
-/* --- TEMPORIZADOR FULL SCREEN --- */
-#countdownFiveMinutes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 500; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    pointer-events: none; 
-}
+  <div class="container" id="mainContainer">
+    
+    <div class="header" id="headerGameTitle">
+      <h1>Impostor Chileno</h1>
+    </div>
 
-#countdownFiveMinutes h2 {
-    color: #FFEB3B; 
-    text-shadow: 0 0 30px rgba(255, 235, 59, 0.8);
-    margin-bottom: 80px;
-    /* Fuente adaptable: Mínimo 3rem, Ideal 15vw, Máximo 6rem */
-    font-size: clamp(3rem, 15vw, 6rem); 
-}
+    <div class="game-settings" id="gameSettings">
+      <div class="setting">
+        <label for="numPlayers">Número de Jugadores</label>
+        <select id="numPlayers">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
 
-/* --- VOTACIÓN FLOTANTE (Adaptada a zonas seguras) --- */
-#votingSection {
-  position: fixed; 
-  /* Se aleja del borde inferior respetando el área segura del iPhone X+ */
-  bottom: calc(20px + env(safe-area-inset-bottom));    
-  left: 50%;
-  transform: translateX(-50%); 
-  width: 90%;      
-  max-width: 400px; /* Coincide con el ancho del contenedor */
-  z-index: 9999;
-  pointer-events: auto; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+      <div class="setting">
+        <label for="categorySelect">Categoría</label>
+        <select id="categorySelect">
+          <option value="ANIMALES">Animales</option>
+          <option value="COMIDA">Comida Chilena</option>
+		  <option value="OBJETOS">Objetos</option>
+		  <option value="LUGARES">Lugares</option>
+          <option value="AZAR" selected>Azar</option>
+        </select>
+      </div>
+      
+      <button id="changeNamesBtn" class="change-names-btn">Nombrar Jugadores</button>
 
-#voteButton {
-  background-color: #00E5FF;
-  color: #000; 
-  padding: 18px; /* Botón grande para dedos */
-  font-size: 1.2rem;
-  border-radius: 50px; 
-  width: 100%;
-  font-weight: 900;
-  border: 4px solid white; 
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.8); 
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: pulseButton 2s infinite;
-  user-select: none; /* Evita selección de texto al tocar rápido */
-}
+      <div class="player-names" id="playerNamesContainer"></div>
 
-@keyframes pulseButton {
-    0% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.6); }
-    50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(0, 229, 255, 1); }
-    100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.6); }
-}
+      <div class="setting">
+        <label for="impostorsCount">Impostores</label>
+        <div class="adjuster" id="impostorAdjuster">
+          <button id="decreaseImpostors">-</button>
+          <span id="impostorsCount">1</span> 
+          <button id="increaseImpostors">+</button>
+        </div>
+      </div>
 
-#newGameBtn {
-    background-color: #4CAF50; 
-    color: white;
-    padding: 15px;
-    width: 100%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 10px;
-    border: 2px solid white;
-    box-shadow: 0 0 25px rgba(76, 175, 80, 0.8);
-    cursor: pointer;
-    margin-top: 10px;
-}
+      <button id="startGame" class="start-btn">Iniciar Juego</button>
+    </div>
 
-/* Interfaz de selección de nombres y votación */
-#voteInterface {
-  width: 100%;
-  background-color: #222; 
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px; 
-  border: 2px solid white;
-  box-shadow: 0 0 50px rgba(0,0,0,1); 
-  max-height: 55dvh; /* Evita que ocupe toda la pantalla en móviles pequeños */
-  overflow-y: auto;
-}
+    <div id="gameInterface" style="display:none;">
+      <div id="cardsContainer"></div>
+      <button id="nextPlayerBtn" style="display:none;">Siguiente Jugador</button>
+    </div>
 
-#voteInterface h2 {
-    text-align: center;
-    color: white;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
+    <div id="countdown" style="display:none;">
+      <h2>Iniciando en <span id="timer">3</span>...</h2>
+    </div>
 
-#voteOptions {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas */
-    gap: 10px;
-}
+    <div id="playerToStart" style="display:none;">
+      <h2 id="startPlayerMessage"></h2>
+    </div>
 
-#voteOptions button {
-  background-color: #673AB7;
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 15px;
-  font-size: 1rem;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  touch-action: manipulation; /* Optimiza la respuesta al toque */
-}
+  </div> 
 
-#voteOptions button:active { background-color: #512DA8; transform: scale(0.96); }
+  <div id="votingSection" style="display:none;">
+      <button id="voteButton">VOTAR / TERMINAR</button>
+      
+      <div id="voteInterface" style="display:none;">
+        <h2>Selecciona al sospechoso:</h2>
+        <div id="voteOptions"></div>
+        <button id="cancelVoteBtn">Cancelar / Volver</button>
+      </div>
+      
+      <div id="votingResult" style="display: none;"></div> 
+      <button id="newGameBtn" style="display:none;">Nueva Partida</button> 
+  </div>
 
-#cancelVoteBtn {
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    background-color: #444;
-    color: #ccc;
-    border: 1px solid #666;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-#votingResult {
-    width: 100%;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 1.1em;
-    line-height: 1.4;
-    border: 2px solid #FFEB3B;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(0,0,0,0.9);
-    margin-bottom: 20px;
-    color: white;
-}
-
-/* --- HEADER Y SETTINGS --- */
-.header h1 {
-  text-align: center;
-  color: #FFEB3B;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  text-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
-}
-
-.setting {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.setting label { font-weight: bold; font-size: 0.9rem; }
-.setting select { 
-    padding: 8px; 
-    border-radius: 5px; 
-    border: none; 
-    background-color: #444; 
-    color: white; 
-    font-size: 1rem; /* Importante para que iOS no haga zoom al input */
-    max-width: 150px;
-}
-
-.adjuster button {
-  padding: 8px 15px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  background-color: #00BCD4; 
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-.adjuster button:disabled { background-color: #555; }
-.adjuster span { padding: 0 10px; font-weight: bold; font-size: 1.2rem; }
-
-.start-btn, .change-names-btn {
-  width: 100%;
-  padding: 15px;
-  margin-top: 10px;
-  background-color: #9C27B0; 
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  font-weight: bold;
-}
-.change-names-btn { background-color: #673AB7; font-size: 0.9rem; margin-bottom: 10px; }
-.player-names { display: none; flex-direction: column; gap: 10px; margin-bottom: 15px; max-height: 200px; overflow-y: auto; }
-.player-names input { 
-    padding: 12px; 
-    border-radius: 5px; 
-    border: 1px solid #555; 
-    background-color: #333; 
-    color: white; 
-    font-size: 1rem; 
-}
-
-/* --- CARTAS (Responsive) --- */
-#gameInterface { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; flex-grow: 1; }
-#cardsContainer { 
-    perspective: 1000px; 
-    /* La carta ocupa un buen tamaño pero no se sale de pantalla */
-    height: clamp(280px, 50vh, 400px); 
-    width: clamp(220px, 70vw, 300px); 
-    margin: 10px auto; 
-}
-
-.player-card {
-  width: 100%; height: 100%; position: relative; transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
-}
-.player-card.revealed { transform: rotateY(180deg); }
-
-.card-overlay, .card-content {
-  position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
-  border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px;
-}
-
-.card-overlay {
-  background: linear-gradient(135deg, #00BCD4, #0097A7); z-index: 2;
-  color: #fff; 
-  font-size: clamp(1.2rem, 5vw, 1.8rem); 
-  font-weight: bold; text-transform: uppercase; border: 4px solid white;
-}
-
-.card-content {
-  background-color: #383838; color: white; transform: rotateY(180deg);
-  flex-direction: column; gap: 10px; border: 2px solid #555;
-}
-.card-content img { border-radius: 50%; border: 3px solid white; width: 35%; background: #fff; }
-#wordText { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; width: 100%; word-break: break-word; font-size: 1.2rem;}
-
-#nextPlayerBtn {
-    background-color: #FF9800; color: white; border: none; padding: 15px;
-    font-size: 1.1rem; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: auto; width: 100%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    margin-bottom: 10px;
-}
-
-/* --- OVERLAYS DE INICIO Y CUENTA REGRESIVA --- */
-#countdown, #playerToStart {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle, rgba(20,20,20,0.98) 0%, rgba(0,0,0,1) 80%);
-    z-index: 1500;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center;
-    padding: 20px;
-}
-
-#countdown h2, #playerToStart h2 { 
-    color: #00BCD4; 
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 20px; 
-    text-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
-}
-
-#timer {
-    font-size: clamp(4rem, 20vw, 8rem); 
-    font-weight: 900;
-    color: #FFEB3B; 
-    text-shadow: 0 0 20px rgba(255, 235, 59, 1);
-    animation: heartbeat 1s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.1); } 
-    30% { transform: scale(1); }   
-    45% { transform: scale(1.05); } 
-    60% { transform: scale(1); }
-    100% { transform: scale(1); }
-}
-
-#playerToStart h2 strong { 
-    color: #FFEB3B; 
-    display: block; 
-    margin-top: 20px;
-    font-size: clamp(2rem, 8vw, 3.5rem); 
-    text-shadow: 0 0 20px rgba(255, 235, 59, 0.8);
-    word-break: break-word; 
-}
+  <script src="game.js"></script>
+</body>
+</html>
