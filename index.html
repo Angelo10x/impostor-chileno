@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Impostor Chileno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div id="countdownFiveMinutes" style="display:none;">
+      <h2 id="fiveMinuteCountdown">05:00</h2>
+  </div>
+
+  <div class="container" id="mainContainer">
+    
+    <div class="header" id="headerGameTitle">
+      <h1>Impostor Chileno</h1>
+    </div>
+
+    <div class="game-settings" id="gameSettings">
+      <div class="setting">
+        <label for="numPlayers">Número de Jugadores</label>
+        <select id="numPlayers">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="setting">
+        <label for="categorySelect">Categoría</label>
+        <select id="categorySelect">
+          <option value="ANIMALES">Animales</option>
+          <option value="COMIDA">Comida Chilena</option>
+        </select>
+      </div>
+      
+      <button id="changeNamesBtn" class="change-names-btn">Nombrar Jugadores</button>
+
+      <div class="player-names" id="playerNamesContainer"></div>
+
+      <div class="setting">
+        <label for="impostorsCount">Impostores</label>
+        <div class="adjuster" id="impostorAdjuster">
+          <button id="decreaseImpostors">-</button>
+          <span id="impostorsCount">1</span> 
+          <button id="increaseImpostors">+</button>
+        </div>
+      </div>
+
+      <button id="startGame" class="start-btn">Iniciar Juego</button>
+    </div>
+
+    <div id="gameInterface" style="display:none;">
+      <div id="cardsContainer"></div>
+      <button id="nextPlayerBtn" style="display:none;">Siguiente Jugador</button>
+    </div>
+
+    <div id="countdown" style="display:none;">
+      <h2>Iniciando en <span id="timer">3</span>...</h2>
+    </div>
+
+    <div id="playerToStart" style="display:none;">
+      <h2 id="startPlayerMessage"></h2>
+    </div>
+
+  </div> 
+
+  <div id="votingSection" style="display:none;">
+      <button id="voteButton">VOTAR / TERMINAR</button>
+      
+      <div id="voteInterface" style="display:none;">
+        <h2>Selecciona al sospechoso:</h2>
+        <div id="voteOptions"></div>
+        <button id="cancelVoteBtn">Cancelar / Volver</button>
+      </div>
+      
+      <div id="votingResult" style="display: none;"></div> 
+      <button id="newGameBtn" style="display:none;">Nueva Partida</button> 
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
