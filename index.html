@@ -37,13 +37,13 @@
         <label for="categorySelect">Categoría</label>
         <select id="categorySelect">
           <option value="ANIMALES">Animales</option>
-          <option value="COMIDA">Comida Chilena</option>
-		  <option value="OBJETOS">Objetos</option>
-		  <option value="LUGARES">Lugares</option>
-          <option value="AZAR" selected>Azar</option>
+          <option value="COMIDA">Comida Típica</option>
+          <option value="OBJETOS">Objetos</option>
+          <option value="LUGARES">Lugares</option>
+          <option value="AZAR">Azar) </option>
         </select>
       </div>
-      
+
       <button id="changeNamesBtn" class="change-names-btn">Nombrar Jugadores</button>
 
       <div class="player-names" id="playerNamesContainer"></div>
@@ -81,13 +81,16 @@
       <div id="voteInterface" style="display:none;">
         <h2>Selecciona al sospechoso:</h2>
         <div id="voteOptions"></div>
-        <button id="cancelVoteBtn">Cancelar / Volver</button>
+        <button id="cancelVoteBtn" class="cancel-btn">Cancelar</button>
       </div>
-      
-      <div id="votingResult" style="display: none;"></div> 
-      <button id="newGameBtn" style="display:none;">Nueva Partida</button> 
-  </div>
 
+      <div id="votingResult" style="display:none;"></div>
+      <button id="newGameBtn" class="start-btn" style="display:none;">NUEVO JUEGO</button>
+  </div> 
+
+  <audio id="audioReveal" src="audio/revelar.mp3" preload="auto"></audio>
+  <audio id="audioTick" src="audio/countdown.mp3" preload="auto"></audio>
+  
   <script src="game.js"></script>
 </body>
 </html>
