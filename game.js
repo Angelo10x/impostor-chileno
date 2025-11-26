@@ -218,15 +218,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById("mainContainer"); 
     
     // =======================================================
-    // --- NUEVAS FUNCIONES Y VARIABLES PARA AUDIO ---
+    // --- INICIALIZACIÓN DE AUDIO ---
     // =======================================================
     
-    // 1. Inicialización de Audio Elementos (Se buscan por ID del HTML)
+    // 1. Inicialización de Audio Elementos (Deben estar en index.html)
     const audioReveal = document.getElementById('audioReveal');
     const audioTick = document.getElementById('audioTick');
-    // Referencias a los nuevos audios
-    const audioExpulsion = document.getElementById('audioExpulsion');
-    const audioWinImpostor = document.getElementById('audioWinImpostor');
+    const audioExpulsion = document.getElementById('audioExpulsion'); // eliminacion_civil.mp3
+    const audioWinImpostor = document.getElementById('audioWinImpostor'); // ganador_impostores.mp3
 
     function playSound(audioElement) {
         if (audioElement) {
@@ -301,8 +300,6 @@ document.addEventListener("DOMContentLoaded", function() {
         playerToStartDiv.style.display = "flex";
         startPlayerMessage.innerHTML = `¡Empieza la Ronda:<br><strong>${playerName}</strong>`; 
         
-        // SONIDO: Inicio del juego/debate (Si tienes un audio 'start.mp3', agrégalo aquí)
-
         setTimeout(function() {
             playerToStartDiv.style.display = "none"; 
             startFiveMinuteCountdown();
@@ -310,14 +307,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     function startFiveMinuteCountdown(initialSeconds = 300) {
-        // ... (resto de startFiveMinuteCountdown sin cambios)
         document.getElementById("gameInterface").style.display = "none";
         countdownDiv.style.display = "none";
         headerGameTitle.style.display = "none"; 
         
         // MOSTRAR TEMPORIZADOR Y BOTÓN
         fiveMinuteCountdownDiv.style.display = "flex"; 
-        votingSection.style.display = "flex"; // Usar Flex para centrar botones
+        votingSection.style.display = "flex"; 
         
         voteButton.style.display = "block";            
         voteInterface.style.display = "none";          
@@ -409,8 +405,6 @@ document.addEventListener("DOMContentLoaded", function() {
             <span style="font-size:0.8em; color:#aaa;">Calculando destino de ${playerVoted.name}...</span>
         `;
         
-        // SONIDO: Al iniciar la expulsión/votación (Si tienes un audio 'expulsion.mp3', descomenta)
-
         setTimeout(function() {
             const role = playerVoted.isImpostor ? "IMPOSTOR" : "CIVIL";
             const roleColor = playerVoted.isImpostor ? '#FFEB3B' : '#00BCD4';
@@ -427,8 +421,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 Era: <span style="color:${roleColor}; font-weight: bold; font-size: 1.4em;">${role}</span>.
             `;
 
-            // Reproducir sonido de eliminación civil si el jugador votado NO era el impostor
-            if (!playerVoted.isImpostor) {
+            // Lógica corregida para eliminacion_civil.mp3: Solo si NO es impostor Y hay 4 o más jugadores iniciales.
+            if (!playerVoted.isImpostor && players.length >= 4) {
                  // SONIDO: Eliminación Civil (audio/eliminacion_civil.mp3)
                 playSound(audioExpulsion); 
             }
@@ -448,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else if (activeImpostors >= activeCivils) {
                     finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
                     gameEnded = true;
-                    // SONIDO: Victoria Impostor (audio/ganador_imposostores.mp3)
+                    // SONIDO: Victoria Impostor (audio/ganador_imposostores.mp3) - Lógica corregida
                     playSound(audioWinImpostor); 
                 } else {
                     finalMessage = playerVoted.isImpostor ? 
