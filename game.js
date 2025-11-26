@@ -1,177 +1,177 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- Categorías ---
+    // --- Categorías (Mantenido sin cambios) ---
     const CATEGORIES = {
     ANIMALES: {
-        list: [
-            { civil: "Perro", impostor: "Lealtad" },
-            { civil: "Gato", impostor: "Sigiloso" },
-            { civil: "Caballo", impostor: "Establo" },
-            { civil: "Vaca", impostor: "Pastoreo" },
-            { civil: "Oveja", impostor: "Rebaño" },
-            { civil: "Pato", impostor: "Plumaje impermeable" },
-            { civil: "Gallina", impostor: "Pico ruidoso" },
-            { civil: "León", impostor: "Sabana" },
-            { civil: "Elefante", impostor: "Paquidermo" },
-            { civil: "Tigre", impostor: "Caza nocturna" },
-            { civil: "Conejo", impostor: "Zanahorias" },
-            { civil: "Cebra", impostor: "Sabana rayada" },
-            { civil: "Serpiente", impostor: "Escamas" },
-            { civil: "Cocodrilo", impostor: "Reptil letal" },
-            { civil: "Hipopótamo", impostor: "Terrestre acuático" },
-            { civil: "Gorila", impostor: "Fuerza salvaje" },
-            { civil: "Mono", impostor: "Travesuras arbóreas" },
-            { civil: "Jirafa", impostor: "Sombrero vegetal" },
-            { civil: "Rinoceronte", impostor: "Blindaje natural" },
-            { civil: "Osos", impostor: "Frutos de bosque" },
-            { civil: "Lobo", impostor: "Aullido" },
-            { civil: "Águila", impostor: "Vuelo de altura" },
-            { civil: "Búho", impostor: "Ojos nocturnos" },
-            { civil: "Cigüeña", impostor: "Emigrante" },
-            { civil: "Pingüino", impostor: "Marcha helada" },
-            { civil: "Delfín", impostor: "Salto acrobático" },
-            { civil: "Ballena", impostor: "Canción profunda" },
-            { civil: "Tiburón", impostor: "Depredador marino" },
-            { civil: "Canguro", impostor: "Marsupial saltarín" },
-            { civil: "Koala", impostor: "Dormilón de eucalipto" },
-            { civil: "Panda", impostor: "Bamboo" },
-            { civil: "Ciervo", impostor: "Rastro de cornamenta" },
-            { civil: "Alce", impostor: "Bosque boreal" },
-            { civil: "Llama", impostor: "Andina y resistente" },
-            { civil: "Coyote", impostor: "Aullido solitario" },
-            { civil: "Búfalo", impostor: "Llanuras abiertas" },
-            { civil: "Bisonte", impostor: "Estepa salvaje" },
-            { civil: "Pavo real", impostor: "Cola desplegada" },
-            { civil: "Gaviota", impostor: "Alas costeras" },
-            { civil: "Gusano", impostor: "Excavador subterráneo" },
-            { civil: "Murciélago", impostor: "Vuelo nocturno" },
-            { civil: "Pollo", impostor: "Ponedora" },
-            { civil: "Leopardo", impostor: "Sigiloso acecho" },
-            { civil: "Cangrejo", impostor: "Caminar de lado" },
-            { civil: "Mula", impostor: "Híbrido de carga" },
-            { civil: "Ardilla", impostor: "Almacenadora" },
-            { civil: "Zorro", impostor: "Astuto cazador" }
-        ],
-        type: 'dynamic'
+    list: [
+        { civil: "Perro", impostor: "Cola" },
+        { civil: "Gato", impostor: "Lasaña" },
+        { civil: "Caballo", impostor: "Arnés" },
+        { civil: "Vaca", impostor: "Bosta" },
+        { civil: "Oveja", impostor: "Lana" },
+        { civil: "Pato", impostor: "Estanque" },
+        { civil: "Gallina", impostor: "Dinosaurio" },
+        { civil: "León", impostor: "Rugido" },
+        { civil: "Elefante", impostor: "Colmillo" },
+        { civil: "Tigre", impostor: "Rayas" },
+        { civil: "Conejo", impostor: "Noche" },
+        { civil: "Cebra", impostor: "Líneas" },
+        { civil: "Serpiente", impostor: "Siseo" },
+        { civil: "Cocodrilo", impostor: "Mandíbulas" },
+        { civil: "Hipopótamo", impostor: "Caca" },
+        { civil: "Gorila", impostor: "Brazo" },
+        { civil: "Mono", impostor: "Cola" },
+        { civil: "Jirafa", impostor: "Cuello" },
+        { civil: "Rinoceronte", impostor: "Cuerno" },
+        { civil: "Osos", impostor: "Hibernación" },
+        { civil: "Lobo", impostor: "Manada" },
+        { civil: "Águila", impostor: "Garras" },
+        { civil: "Búho", impostor: "Silencio" },
+        { civil: "Cigüeña", impostor: "Bebé" },
+        { civil: "Pingüino", impostor: "Hielo" },
+        { civil: "Delfín", impostor: "Olas" },
+        { civil: "Ballena", impostor: "Sin Espacio" },
+        { civil: "Tiburón", impostor: "Herramientas" },
+        { civil: "Canguro", impostor: "Bolsillo" },
+        { civil: "Koala", impostor: "Abrazo" },
+        { civil: "Panda", impostor: "Masticar" },
+        { civil: "Ciervo", impostor: "Astas" },
+        { civil: "Alce", impostor: "Frío" },
+        { civil: "Llama", impostor: "Cordero" },
+        { civil: "Coyote", impostor: "Desierto" },
+        { civil: "Búfalo", impostor: "Grano" },
+        { civil: "Bisonte", impostor: "Manada" },
+        { civil: "Pavo real", impostor: "Verdadero" },
+        { civil: "Gaviota", impostor: "Gritos" },
+        { civil: "Gusano", impostor: "Tierra" },
+        { civil: "Murciélago", impostor: "Corona" },
+        { civil: "Pollo", impostor: "Cloqueo" },
+        { civil: "Leopardo", impostor: "Manchas" },
+        { civil: "Cangrejo", impostor: "Pinzas" },
+        { civil: "Mula", impostor: "Resistencia" },
+        { civil: "Ardilla", impostor: "Nuez" },
+        { civil: "Zorro", impostor: "Trampa" }
+    ],
+    type: 'dynamic'
     },
     COMIDA: {
     list: [
-        { civil: "Choclo", impostor: "Grano" },
-        { civil: "Parrilla", impostor: "Carbón" },
-        { civil: "Sopaipilla", impostor: "Zapallo" },
-        { civil: "Mote con huesillo", impostor: "Durazno" },
+        { civil: "Choclo", impostor: "Cereal" },
+        { civil: "Parrilla", impostor: "Leña" },
+        { civil: "Sopaipilla", impostor: "Frita" },
+        { civil: "Mote con huesillo", impostor: "Fruto seco" },
         { civil: "Empanada", impostor: "Horno" },
-        { civil: "Cazuela", impostor: "Caldo" },
-        { civil: "Completo", impostor: "Vienesa" },
-        { civil: "Empanada de pino", impostor: "Masa" },
-        { civil: "Pastel de choclo", impostor: "Gratinado" },
-        { civil: "Curanto", impostor: "Mariscos" },
-        { civil: "Sopaipillas", impostor: "Fritura" },
-        { civil: "Pebre", impostor: "Ají" },
-        { civil: "Choripán", impostor: "Parrilla" },
-        { civil: "Porotos con riendas", impostor: "Frijoles" },
-        { civil: "Pantrucas", impostor: "Fideos" },
-        { civil: "Tortillas de rescoldo", impostor: "Horno" },
-        { civil: "Chirimoya alegre", impostor: "Fruta" },
-        { civil: "Humitas", impostor: "Choclo" },
-        { civil: "Paila marina", impostor: "Sopa" },
-        { civil: "Caldillo de congrio", impostor: "Congrio" },
-        { civil: "Ceviche chileno", impostor: "Cítrico" },
-        { civil: "Tallarines con salsa de mariscos", impostor: "Mariscos" },
-        { civil: "Leche asada", impostor: "Dulce" },
-        { civil: "Papas con mayonesa", impostor: "Ensalada" },
-        { civil: "Berlines", impostor: "Dulce" },
-        { civil: "Cuchuflí", impostor: "Caramelo" },
-        { civil: "Chacarero", impostor: "Papas" },
+        { civil: "Cazuela", impostor: "Verduras" },
+        { civil: "Completo", impostor: "Pan" },
+        { civil: "Empanada de pino", impostor: "Carne" },
+        { civil: "Pastel de choclo", impostor: "Cebolla" },
+        { civil: "Curanto", impostor: "Piedra" },
+        { civil: "Sopaipillas", impostor: "Aceite" },
+        { civil: "Pebre", impostor: "Cilantro" },
+        { civil: "Choripán", impostor: "Pan" },
+        { civil: "Porotos con riendas", impostor: "Fideos" },
+        { civil: "Pantrucas", impostor: "Caldo" },
+        { civil: "Tortillas de rescoldo", impostor: "Carbón" },
+        { civil: "Chirimoya alegre", impostor: "Tropical" },
+        { civil: "Humitas", impostor: "Cinturon" },
+        { civil: "Paila marina", impostor: "Aromas" },
+        { civil: "Caldillo de congrio", impostor: "Agua salada" },
+        { civil: "Ceviche chileno", impostor: "Marisco" },
+        { civil: "Tallarines con salsa", impostor: "Di Maria" },
+        { civil: "Leche asada", impostor: "Caramelo" },
+        { civil: "Papas Mayo", impostor: "Acompañante" },
+        { civil: "Berlines", impostor: "Masa" },
+        { civil: "Cuchuflí", impostor: "Caramelizado" },
+        { civil: "Chacarero", impostor: "Tomate" },
         { civil: "Sánguche de potito", impostor: "Cerdo" },
-        { civil: "Torta de mil hojas", impostor: "Pastel" },
-        { civil: "Ají de gallina", impostor: "Picante" },
-        { civil: "Paila de mariscos", impostor: "Caldoso" },
-        { civil: "Pescado frito", impostor: "Mariscos" },
-        { civil: "Chorrillana", impostor: "Papas" },
+        { civil: "Torta de mil hojas", impostor: "Capas" },
+        { civil: "Ají", impostor: "Chile" },
+        { civil: "Paila de mariscos", impostor: "Mariscos frescos" },
+        { civil: "Pescado frito", impostor: "Crocante" },
+        { civil: "Chorrillana", impostor: "Sartén" },
         { civil: "Pan de Pascua", impostor: "Navidad" }
     ],
     type: "dynamic"
+
     },
     OBJETOS: {
-        list: [
-            { civil: "Celular", impostor: "Silencio" },
-            { civil: "Llave", impostor: "Acceso" },
-            { civil: "Lámpara", impostor: "Genio" },
-            { civil: "Taza", impostor: "Desayuno" },
-            { civil: "Sombrero", impostor: "Paja" },
-            { civil: "Zapato", impostor: "Cordón" },
-            { civil: "Bicicleta", impostor: "Pedal" },
-            { civil: "Cinturón", impostor: "Apretar" },
-            { civil: "Espejo", impostor: "Mirar" },
-            { civil: "Reloj", impostor: "Puntualidad" },
-            { civil: "Mochila", impostor: "Cierre" },
-            { civil: "Pluma", impostor: "Escribir" },
-            { civil: "Libro", impostor: "Páginas" },
-            { civil: "Silla", impostor: "Reposo" },
-            { civil: "Mesa", impostor: "Comedor" },
-            { civil: "Cartera", impostor: "Billetera" },
-            { civil: "Gafas", impostor: "Óptica" },
-            { civil: "Carpeta", impostor: "Documentos" },
-            { civil: "Cuaderno", impostor: "Notas" },
-            { civil: "Auriculares", impostor: "Sonido" },
-            { civil: "Manta", impostor: "Cobijo" },
-            { civil: "Linterna", impostor: "Oscuridad" },
-            { civil: "Paraguas", impostor: "Tormenta" },
-            { civil: "Papel", impostor: "Escribir" },
-            { civil: "Ropa", impostor: "Vestir" },
-            { civil: "Bolsillo", impostor: "Secreto" },
-            { civil: "Teclado", impostor: "Escribir" },
-            { civil: "Ratón", impostor: "Click" },
-            { civil: "Pantalla", impostor: "Cine" },
-            { civil: "Ventilador", impostor: "Mistral" },
-            { civil: "Caja", impostor: "Regalo" },
-            { civil: "Vaso", impostor: "Cóctel" },
-            { civil: "Lentes", impostor: "Aumento" },
-            { civil: "Cinta", impostor: "Pegamento" },
-            { civil: "Cuchara", impostor: "Sopa" }
-        ],
-        type: "dynamic"
+    list: [
+        { civil: "Celular", impostor: "Vibración" },
+        { civil: "Llave", impostor: "Cerradura" },
+        { civil: "Lámpara", impostor: "Bombilla" },
+        { civil: "Taza", impostor: "Cerámica" },
+        { civil: "Sombrero", impostor: "Ala" },
+        { civil: "Zapato", impostor: "Suela" },
+        { civil: "Bicicleta", impostor: "Rueda" },
+        { civil: "Cinturón", impostor: "Hebilla" },
+        { civil: "Espejo", impostor: "Reflejo" },
+        { civil: "Reloj", impostor: "Manecillas" },
+        { civil: "Mochila", impostor: "Tirantes" },
+        { civil: "Pluma", impostor: "Tinta" },
+        { civil: "Libro", impostor: "Portada" },
+        { civil: "Silla", impostor: "Respaldo" },
+        { civil: "Mesa", impostor: "Superficie" },
+        { civil: "Cartera", impostor: "Cremallera" },
+        { civil: "Gafas", impostor: "Cristales" },
+        { civil: "Carpeta", impostor: "Archivo" },
+        { civil: "Cuaderno", impostor: "Papel" },
+        { civil: "Auriculares", impostor: "Almohadillas" },
+        { civil: "Manta", impostor: "Tela" },
+        { civil: "Linterna", impostor: "Batería" },
+        { civil: "Paraguas", impostor: "Varillas" },
+        { civil: "Papel", impostor: "Limpía" },
+        { civil: "Ropa", impostor: "Tejido" },
+        { civil: "Bolsillo", impostor: "Costura" },
+        { civil: "Mouse", impostor: "Disney" },
+        { civil: "Pantalla", impostor: "Imagen" },
+        { civil: "Ventilador", impostor: "Aire" },
+        { civil: "Caja", impostor: "Tapa" },
+        { civil: "Vaso", impostor: "Beber" },
+        { civil: "Lentes", impostor: "Orejas" },
+        { civil: "Cinta", impostor: "Adhesivo" },
+        { civil: "Cuchara", impostor: "Comida" }
+    ],
+    type: "dynamic"
     },
     LUGARES: {
-        list: [
-            { civil: "Cine", impostor: "Palomitas" },
-            { civil: "Mar", impostor: "Olas" },
-            { civil: "Playa", impostor: "Arena" },
-            { civil: "Río", impostor: "Corriente" },
-            { civil: "Sala de clases", impostor: "Tiza" },
-            { civil: "Parque", impostor: "Juegos" },
-            { civil: "Montaña", impostor: "Escalada" },
-            { civil: "Biblioteca", impostor: "Silencio" },
-            { civil: "Restaurante", impostor: "Menú" },
-            { civil: "Supermercado", impostor: "Carro" },
-            { civil: "Hospital", impostor: "Urgencias" },
-            { civil: "Oficina", impostor: "Escritorio" },
-            { civil: "Estadio", impostor: "Hinchas" },
-            { civil: "Iglesia", impostor: "Rezo" },
-            { civil: "Cafetería", impostor: "Café" },
-            { civil: "Museo", impostor: "Exposición" },
-            { civil: "Teatro", impostor: "Escenario" },
-            { civil: "Aeropuerto", impostor: "Vuelo" },
-            { civil: "Hotel", impostor: "Habitación" },
-            { civil: "Centro comercial", impostor: "Compras" },
-            { civil: "Plaza", impostor: "Banco" },
-            { civil: "Estación de tren", impostor: "Andén" },
-            { civil: "Estación de metro", impostor: "Subterráneo" },
-            { civil: "Gimnasio", impostor: "Pesas" },
-            { civil: "Farmacia", impostor: "Medicamentos" },
-            { civil: "Tienda", impostor: "Producto" },
-            { civil: "Pista de baile", impostor: "Música" },
-            { civil: "Fábrica", impostor: "Producción" },
-            { civil: "Universidad", impostor: "Carrera" },
-            { civil: "Jardín", impostor: "Flores" },
-            { civil: "Cementerio", impostor: "Tumba" },
-            { civil: "Mercado", impostor: "Compras" },
-            { civil: "Zoológico", impostor: "Animal" },
-            { civil: "Paseo", impostor: "Vacaciones" },
-            { civil: "Túnel", impostor: "Oscuridad" }
-        ],
-        type: "dynamic"
+    list: [
+        { civil: "Cine", impostor: "Pantalla" },
+        { civil: "Mar", impostor: "Sal" },
+        { civil: "Playa", impostor: "Tumbona" },
+        { civil: "Río", impostor: "Caudal" },
+        { civil: "Sala de clases", impostor: "Pizarra" },
+        { civil: "Parque", impostor: "Árboles" },
+        { civil: "Montaña", impostor: "Cima" },
+        { civil: "Biblioteca", impostor: "Estante" },
+        { civil: "Restaurante", impostor: "Comensales" },
+        { civil: "Supermercado", impostor: "Pasillo" },
+        { civil: "Hospital", impostor: "Camas" },
+        { civil: "Oficina", impostor: "Reunión" },
+        { civil: "Estadio", impostor: "Grada" },
+        { civil: "Iglesia", impostor: "Altar" },
+        { civil: "Cafetería", impostor: "Barista" },
+        { civil: "Museo", impostor: "Galería" },
+        { civil: "Teatro", impostor: "Actores" },
+        { civil: "Aeropuerto", impostor: "Terminal" },
+        { civil: "Hotel", impostor: "Check-in" },
+        { civil: "Centro comercial", impostor: "Escaparate" },
+        { civil: "Plaza", impostor: "Fuente" },
+        { civil: "Estación de tren", impostor: "Vía" },
+        { civil: "Estación de metro", impostor: "Túnel" },
+        { civil: "Gimnasio", impostor: "Cardio" },
+        { civil: "Farmacia", impostor: "Receta" },
+        { civil: "Tienda", impostor: "Estante" },
+        { civil: "Pista de baile", impostor: "Ritmo" },
+        { civil: "Fábrica", impostor: "Máquinas" },
+        { civil: "Universidad", impostor: "Aula" },
+        { civil: "Jardín", impostor: "Maceta" },
+        { civil: "Cementerio", impostor: "Lápida" },
+        { civil: "Mercado", impostor: "Puesto" },
+        { civil: "Zoológico", impostor: "Jaula" },
+        { civil: "Paseo", impostor: "Caminar" },
+        { civil: "Túnel", impostor: "Cueva" }
+    ],
+    type: "dynamic"
     },
     // --- Nueva Categoría AZAR ---
     AZAR: {
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ...CATEGORIES.LUGARES.list
     ];
 
-    // --- Referencias DOM ---
+    // --- Referencias DOM (Mantenido sin cambios) ---
     const numPlayersSelect = document.getElementById("numPlayers");
     const impostorsSpan = document.getElementById("impostorsCount"); 
     const startGameBtn = document.getElementById("startGame");
@@ -216,8 +216,32 @@ document.addEventListener("DOMContentLoaded", function() {
     const startPlayerMessage = document.getElementById("startPlayerMessage"); 
     
     const container = document.getElementById("mainContainer"); 
+    
+    // =======================================================
+    // --- NUEVAS FUNCIONES Y VARIABLES PARA AUDIO ---
+    // =======================================================
+    
+    // 1. Inicialización de Audio Elementos (se buscan por ID del HTML)
+    const audioReveal = document.getElementById('audioReveal');
+    const audioTick = document.getElementById('audioTick');
+    // Si agregas más audios, agrégalos aquí también:
+    // const audioStart = document.getElementById('audioStart');
+    // const audioExpulsion = document.getElementById('audioExpulsion');
 
-    // --- Variables ---
+    function playSound(audioElement) {
+        if (audioElement) {
+            // Detiene y reinicia el sonido antes de reproducir para evitar solapamiento
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            // Catch para evitar errores si el usuario no ha interactuado con la página
+            audioElement.play().catch(e => console.log("Advertencia: No se pudo reproducir el audio automáticamente.", e));
+        }
+    }
+    // =======================================================
+    // --- FIN AUDIO ---
+    // =======================================================
+
+    // --- Variables (Mantenido sin cambios) ---
     let numPlayers = 0;
     let impostors = 0;
     let players = [];
@@ -225,9 +249,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let countdownInterval;
     let totalSeconds = 300; 
 
-    // --- Funciones ---
+    // --- Funciones (Modificadas para incluir audio) ---
 
     function resetGame() {
+        // ... (resto de resetGame sin cambios)
         document.getElementById("gameSettings").style.display = "block";
         document.getElementById("gameInterface").style.display = "none";
         document.getElementById("countdown").style.display = "none";
@@ -276,6 +301,9 @@ document.addEventListener("DOMContentLoaded", function() {
         playerToStartDiv.style.display = "flex";
         startPlayerMessage.innerHTML = `¡Empieza la Ronda:<br><strong>${playerName}</strong>`; 
         
+        // SONIDO: Inicio del juego/debate (Si tienes un audio 'start.mp3', descomenta)
+        // playSound(audioStart); 
+
         setTimeout(function() {
             playerToStartDiv.style.display = "none"; 
             startFiveMinuteCountdown();
@@ -283,6 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     function startFiveMinuteCountdown(initialSeconds = 300) {
+        // ... (resto de startFiveMinuteCountdown sin cambios)
         document.getElementById("gameInterface").style.display = "none";
         countdownDiv.style.display = "none";
         headerGameTitle.style.display = "none"; 
@@ -313,7 +342,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 voteInterface.style.display = "none";
                 votingResultDiv.style.display = "block";
                 
-                votingResultDiv.innerHTML = "⏰ ¡Tiempo terminado!<br>El Impostor ha ganado por tiempo.";
+                // Agregamos el nombre del impostor al mensaje de fin de tiempo
+                const impostorNames = players.filter(p => p.isImpostor).map(p => p.name).join(" y ");
+                
+                votingResultDiv.innerHTML = `⏰ ¡Tiempo terminado!<br>El Impostor ha ganado por tiempo.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
+
+                // SONIDO: Victoria Impostor (Si tienes un audio, agrégalo aquí)
+                // playSound(audioWinImpostor); 
                 
                 voteButton.style.display = "none";
                 newGameBtn.style.display = "block";
@@ -333,6 +368,9 @@ document.addEventListener("DOMContentLoaded", function() {
         let interval = setInterval(function() {
             countdownTime--;
             countdownTimer.textContent = countdownTime;
+            
+            // SONIDO: Tick del countdown (audio/countdown.mp3)
+            playSound(audioTick); 
 
             if (countdownTime <= 0) {
                 clearInterval(interval);
@@ -354,9 +392,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function voteForPlayer(index) {
+        pauseCountdown(); // Detiene el timer durante el voto
         fiveMinuteCountdownDiv.style.display = "none";
         headerGameTitle.style.display = "block"; 
-        container.style.display = "block"; // Asegurar que el contenedor se vea de fondo
+        container.style.display = "block"; 
         
         const playerVoted = players[index];
         
@@ -370,6 +409,9 @@ document.addEventListener("DOMContentLoaded", function() {
             🗳️ <strong>Procesando Votos...</strong> 🗳️<br><br>
             <span style="font-size:0.8em; color:#aaa;">Calculando destino de ${playerVoted.name}...</span>
         `;
+        
+        // SONIDO: Al iniciar la expulsión/votación (Si tienes un audio 'expulsion.mp3', descomenta)
+        // playSound(audioExpulsion); 
 
         setTimeout(function() {
             const role = playerVoted.isImpostor ? "IMPOSTOR" : "CIVIL";
@@ -386,6 +428,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 ${playerVoted.name} ha sido expulsado.<br> 
                 Era: <span style="color:${roleColor}; font-weight: bold; font-size: 1.4em;">${role}</span>.
             `;
+            
+            // Si quieres que el resultado final sea más explícito
+            const impostorNames = players.filter(p => p.isImpostor).map(p => p.name).join(" y ");
 
             setTimeout(function() {
                 // FASE 3
@@ -395,9 +440,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (activeImpostors === 0) {
                     finalMessage = `🎉 ¡Victoria Civil! 🎉<br>Todos los impostores eliminados.`;
                     gameEnded = true;
+                    // SONIDO: Victoria Civil
+                    // playSound(audioWinCivil); 
                 } else if (activeImpostors >= activeCivils) {
-                    finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.`;
+                    finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
                     gameEnded = true;
+                    // SONIDO: Victoria Impostor
+                    // playSound(audioWinImpostor); 
                 } else {
                     finalMessage = playerVoted.isImpostor ? 
                         "✅ ¡Bien! Un Impostor menos.<br>El juego continúa..." : 
@@ -475,6 +524,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 card.classList.add("revealed");
                 nextPlayerBtn.style.display = "block";
                 
+                // SONIDO: Revelar carta (audio/revelar.mp3)
+                playSound(audioReveal); 
+                
                 if (index === numPlayers - 1) {
                     nextPlayerBtn.textContent = "¡Comenzar el juego!";
                 } else {
@@ -485,6 +537,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function generateNameInputs() {
+        // ... (resto de generateNameInputs sin cambios)
         playerNamesContainer.innerHTML = '';
         const currentNumPlayers = parseInt(numPlayersSelect.value);
         for (let i = 0; i < currentNumPlayers; i++) {
@@ -498,6 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function updateImpostorControls() {
+        // ... (resto de updateImpostorControls sin cambios)
         const currentPlayers = parseInt(numPlayersSelect.value);
         let maxImpostors = (currentPlayers >= 7) ? 2 : 1;
         if (currentPlayers >= 9) maxImpostors = 3;
@@ -510,7 +564,7 @@ document.addEventListener("DOMContentLoaded", function() {
         increaseImpostors.disabled = parseInt(impostorsSpan.textContent) >= maxImpostors;
     }
 
-    // --- Listeners ---
+    // --- Listeners (Mantenido sin cambios) ---
     numPlayersSelect.addEventListener('change', () => {
         generateNameInputs();
         updateImpostorControls();
@@ -540,6 +594,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     startGameBtn.addEventListener("click", function() {
+        // ... (resto de startGameBtn sin cambios)
         document.getElementById("gameSettings").style.display = "none";
         document.getElementById("gameInterface").style.display = "flex";
         
@@ -577,6 +632,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     nextPlayerBtn.addEventListener("click", function() {
+        // ... (resto de nextPlayerBtn sin cambios)
         if (currentPlayerIndex === numPlayers - 1) {
             document.getElementById("gameInterface").style.display = "none";
             start3SecondCountdown();
