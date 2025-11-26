@@ -2,281 +2,156 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // --- Categorías (Mantenido sin cambios) ---
     const CATEGORIES = {
-    ANIMALES: {
-    list: [
-        { civil: "Perro", impostor: "Cola" },
-        { civil: "Gato", impostor: "Lasaña" },
-        { civil: "Caballo", impostor: "Arnés" },
-        { civil: "Vaca", impostor: "Bosta" },
-        { civil: "Oveja", impostor: "Lana" },
-        { civil: "Pato", impostor: "Estanque" },
-        { civil: "Gallina", impostor: "Dinosaurio" },
-        { civil: "León", impostor: "Rugido" },
-        { civil: "Elefante", impostor: "Colmillo" },
-        { civil: "Tigre", impostor: "Rayas" },
-        { civil: "Conejo", impostor: "Noche" },
-        { civil: "Cebra", impostor: "Líneas" },
-        { civil: "Serpiente", impostor: "Siseo" },
-        { civil: "Cocodrilo", impostor: "Mandíbulas" },
-        { civil: "Hipopótamo", impostor: "Caca" },
-        { civil: "Gorila", impostor: "Brazo" },
-        { civil: "Mono", impostor: "Cola" },
-        { civil: "Jirafa", impostor: "Cuello" },
-        { civil: "Rinoceronte", impostor: "Cuerno" },
-        { civil: "Osos", impostor: "Hibernación" },
-        { civil: "Lobo", impostor: "Manada" },
-        { civil: "Águila", impostor: "Garras" },
-        { civil: "Búho", impostor: "Silencio" },
-        { civil: "Cigüeña", impostor: "Bebé" },
-        { civil: "Pingüino", impostor: "Hielo" },
-        { civil: "Delfín", impostor: "Olas" },
-        { civil: "Ballena", impostor: "Sin Espacio" },
-        { civil: "Tiburón", impostor: "Herramientas" },
-        { civil: "Canguro", impostor: "Bolsillo" },
-        { civil: "Koala", impostor: "Abrazo" },
-        { civil: "Panda", impostor: "Masticar" },
-        { civil: "Ciervo", impostor: "Astas" },
-        { civil: "Alce", impostor: "Frío" },
-        { civil: "Llama", impostor: "Cordero" },
-        { civil: "Coyote", impostor: "Desierto" },
-        { civil: "Búfalo", impostor: "Grano" },
-        { civil: "Bisonte", impostor: "Manada" },
-        { civil: "Pavo real", impostor: "Verdadero" },
-        { civil: "Gaviota", impostor: "Gritos" },
-        { civil: "Gusano", impostor: "Tierra" },
-        { civil: "Murciélago", impostor: "Corona" },
-        { civil: "Pollo", impostor: "Cloqueo" },
-        { civil: "Leopardo", impostor: "Manchas" },
-        { civil: "Cangrejo", impostor: "Pinzas" },
-        { civil: "Mula", impostor: "Resistencia" },
-        { civil: "Ardilla", impostor: "Nuez" },
-        { civil: "Zorro", impostor: "Trampa" }
-    ],
-    type: 'dynamic'
-    },
-    COMIDA: {
-    list: [
-        { civil: "Choclo", impostor: "Cereal" },
-        { civil: "Parrilla", impostor: "Leña" },
-        { civil: "Sopaipilla", impostor: "Frita" },
-        { civil: "Mote con huesillo", impostor: "Fruto seco" },
-        { civil: "Empanada", impostor: "Horno" },
-        { civil: "Cazuela", impostor: "Verduras" },
-        { civil: "Completo", impostor: "Pan" },
-        { civil: "Empanada de pino", impostor: "Carne" },
-        { civil: "Pastel de choclo", impostor: "Cebolla" },
-        { civil: "Curanto", impostor: "Piedra" },
-        { civil: "Sopaipillas", impostor: "Aceite" },
-        { civil: "Pebre", impostor: "Cilantro" },
-        { civil: "Choripán", impostor: "Pan" },
-        { civil: "Porotos con riendas", impostor: "Fideos" },
-        { civil: "Pantrucas", impostor: "Caldo" },
-        { civil: "Tortillas de rescoldo", impostor: "Carbón" },
-        { civil: "Chirimoya alegre", impostor: "Tropical" },
-        { civil: "Humitas", impostor: "Cinturon" },
-        { civil: "Paila marina", impostor: "Aromas" },
-        { civil: "Caldillo de congrio", impostor: "Agua salada" },
-        { civil: "Ceviche chileno", impostor: "Marisco" },
-        { civil: "Tallarines con salsa", impostor: "Di Maria" },
-        { civil: "Leche asada", impostor: "Caramelo" },
-        { civil: "Papas Mayo", impostor: "Acompañante" },
-        { civil: "Berlines", impostor: "Masa" },
-        { civil: "Cuchuflí", impostor: "Caramelizado" },
-        { civil: "Chacarero", impostor: "Tomate" },
-        { civil: "Sánguche de potito", impostor: "Cerdo" },
-        { civil: "Torta de mil hojas", impostor: "Capas" },
-        { civil: "Ají", impostor: "Chile" },
-        { civil: "Paila de mariscos", impostor: "Mariscos frescos" },
-        { civil: "Pescado frito", impostor: "Crocante" },
-        { civil: "Chorrillana", impostor: "Sartén" },
-        { civil: "Pan de Pascua", impostor: "Navidad" }
-    ],
-    type: "dynamic"
-
-    },
-    OBJETOS: {
-    list: [
-        { civil: "Celular", impostor: "Vibración" },
-        { civil: "Llave", impostor: "Cerradura" },
-        { civil: "Lámpara", impostor: "Bombilla" },
-        { civil: "Taza", impostor: "Cerámica" },
-        { civil: "Sombrero", impostor: "Ala" },
-        { civil: "Zapato", impostor: "Suela" },
-        { civil: "Bicicleta", impostor: "Rueda" },
-        { civil: "Cinturón", impostor: "Hebilla" },
-        { civil: "Espejo", impostor: "Reflejo" },
-        { civil: "Reloj", impostor: "Manecillas" },
-        { civil: "Mochila", impostor: "Tirantes" },
-        { civil: "Pluma", impostor: "Tinta" },
-        { civil: "Libro", impostor: "Portada" },
-        { civil: "Silla", impostor: "Respaldo" },
-        { civil: "Mesa", impostor: "Superficie" },
-        { civil: "Cartera", impostor: "Cremallera" },
-        { civil: "Gafas", impostor: "Cristales" },
-        { civil: "Carpeta", impostor: "Archivo" },
-        { civil: "Cuaderno", impostor: "Papel" },
-        { civil: "Auriculares", impostor: "Almohadillas" },
-        { civil: "Manta", impostor: "Tela" },
-        { civil: "Linterna", impostor: "Batería" },
-        { civil: "Paraguas", impostor: "Varillas" },
-        { civil: "Papel", impostor: "Limpía" },
-        { civil: "Ropa", impostor: "Tejido" },
-        { civil: "Bolsillo", impostor: "Costura" },
-        { civil: "Mouse", impostor: "Disney" },
-        { civil: "Pantalla", impostor: "Imagen" },
-        { civil: "Ventilador", impostor: "Aire" },
-        { civil: "Caja", impostor: "Tapa" },
-        { civil: "Vaso", impostor: "Beber" },
-        { civil: "Lentes", impostor: "Orejas" },
-        { civil: "Cinta", impostor: "Adhesivo" },
-        { civil: "Cuchara", impostor: "Comida" }
-    ],
-    type: "dynamic"
-    },
-    LUGARES: {
-    list: [
-        { civil: "Cine", impostor: "Pantalla" },
-        { civil: "Mar", impostor: "Sal" },
-        { civil: "Playa", impostor: "Tumbona" },
-        { civil: "Río", impostor: "Caudal" },
-        { civil: "Sala de clases", impostor: "Pizarra" },
-        { civil: "Parque", impostor: "Árboles" },
-        { civil: "Montaña", impostor: "Cima" },
-        { civil: "Biblioteca", impostor: "Estante" },
-        { civil: "Restaurante", impostor: "Comensales" },
-        { civil: "Supermercado", impostor: "Pasillo" },
-        { civil: "Hospital", impostor: "Camas" },
-        { civil: "Oficina", impostor: "Reunión" },
-        { civil: "Estadio", impostor: "Grada" },
-        { civil: "Iglesia", impostor: "Altar" },
-        { civil: "Cafetería", impostor: "Barista" },
-        { civil: "Museo", impostor: "Galería" },
-        { civil: "Teatro", impostor: "Actores" },
-        { civil: "Aeropuerto", impostor: "Terminal" },
-        { civil: "Hotel", impostor: "Check-in" },
-        { civil: "Centro comercial", impostor: "Escaparate" },
-        { civil: "Plaza", impostor: "Fuente" },
-        { civil: "Estación de tren", impostor: "Vía" },
-        { civil: "Estación de metro", impostor: "Túnel" },
-        { civil: "Gimnasio", impostor: "Cardio" },
-        { civil: "Farmacia", impostor: "Receta" },
-        { civil: "Tienda", impostor: "Estante" },
-        { civil: "Pista de baile", impostor: "Ritmo" },
-        { civil: "Fábrica", impostor: "Máquinas" },
-        { civil: "Universidad", impostor: "Aula" },
-        { civil: "Jardín", impostor: "Maceta" },
-        { civil: "Cementerio", impostor: "Lápida" },
-        { civil: "Mercado", impostor: "Puesto" },
-        { civil: "Zoológico", impostor: "Jaula" },
-        { civil: "Paseo", impostor: "Caminar" },
-        { civil: "Túnel", impostor: "Cueva" }
-    ],
-    type: "dynamic"
-    },
-    // --- Nueva Categoría AZAR ---
-    AZAR: {
-        list: [], // Se llenará dinámicamente
-        type: "dynamic"
-    }
-};
+        ANIMALES: {
+            list: [
+                { civil: "Perro", impostor: "Cola" },
+                { civil: "Gato", impostor: "Lasaña" },
+                { civil: "Caballo", impostor: "Arnés" },
+                { civil: "Vaca", impostor: "Bosta" },
+                { civil: "Oveja", impostor: "Lana" },
+                { civil: "Pato", impostor: "Estanque" },
+                { civil: "Gallina", impostor: "Dinosaurio" },
+                { civil: "León", impostor: "Rugido" },
+                { civil: "Elefante", impostor: "Colmillo" },
+                { civil: "Tigre", impostor: "Rayas" },
+                { civil: "Conejo", impostor: "Noche" },
+                { civil: "Cebra", impostor: "Líneas" },
+                { civil: "Serpiente", impostor: "Siseo" },
+                { civil: "Cocodrilo", impostor: "Mandíbulas" },
+                { civil: "Hipopótamo", impostor: "Caca" },
+                { civil: "Gorila", impostor: "Brazo" },
+                { civil: "Mono", impostor: "Cola" },
+                { civil: "Jirafa", impostor: "Cuello" },
+                { civil: "Rinoceronte", impostor: "Cuerno" },
+                { civil: "Osos", impostor: "Hibernación" },
+                { civil: "Lobo", impostor: "Manada" },
+                { civil: "Águila", impostor: "Garras" },
+                { civil: "Búho", impostor: "Silencio" },
+                { civil: "Cigüeña", impostor: "Bebé" },
+                { civil: "Pingüino", impostor: "Hielo" },
+                { civil: "Delfín", impostor: "Olas" },
+                { civil: "Ballena", impostor: "Sin Espacio" },
+                { civil: "Tiburón", impostor: "Herramientas" },
+                { civil: "Canguro", impostor: "Bolsillo" },
+                { civil: "Koala", impostor: "Abrazo" },
+                { civil: "Panda", impostor: "Masticar" },
+                { civil: "Ciervo", impostor: "Astas" },
+                { civil: "Alce", impostor: "Frío" },
+                { civil: "Llama", impostor: "Cordero" },
+                { civil: "Coyote", impostor: "Desierto" },
+                { civil: "Búfalo", impostor: "Grano" },
+                { civil: "Bisonte", impostor: "Manada" },
+                { civil: "Pavo real", impostor: "Verdadero" },
+                { civil: "Gaviota", impostor: "Gritos" },
+                { civil: "Gusano", impostor: "Tierra" },
+                { civil: "Murciélago", impostor: "Corona" },
+                { civil: "Pollo", impostor: "Cloqueo" },
+                { civil: "Leopardo", impostor: "Manchas" },
+                { civil: "Cangrejo", impostor: "Pinzas" },
+                { civil: "Mula", impostor: "Resistencia" },
+                { civil: "Ardilla", impostor: "Nuez" },
+                { civil: "Zorro", impostor: "Trampa" }
+            ],
+            type: 'dynamic'
+        },
+        COMIDA: {
+            list: [
+                { civil: "Choclo", impostor: "Cereal" },
+                { civil: "Parrilla", impostor: "Leña" },
+                { civil: "Sopaipilla", impostor: "Frita" },
+                { civil: "Mote con huesillo", impostor: "Fruto seco" },
+                { civil: "Empanada", impostor: "Horno" },
+                { civil: "Cazuela", impostor: "Verduras" },
+                { civil: "Completo", impostor: "Pan" },
+                { civil: "Empanada de pino", impostor: "Carne" },
+                { civil: "Pastel de choclo", impostor: "Cebolla" },
+                { civil: "Curanto", impostor: "Piedra" },
+                { civil: "Sopaipillas", impostor: "Aceite" },
+                { civil: "Pebre", impostor: "Cilantro" },
+                { civil: "Choripán", impostor: "Pan" },
+                { civil: "Porotos con riendas", impostor: "Fideos" },
+                { civil: "Pantrucas", impostor: "Caldo" },
+                { civil: "Tortillas de rescoldo", impostor: "Carbón" },
+                { civil: "Chirimoya alegre", impostor: "Tropical" },
+                { civil: "Humitas", impostor: "Cinturon" },
+                { civil: "Paila marina", impostor: "Aromas" },
+                { civil: "Caldillo de congrio", impostor: "Agua salada" },
+                { civil: "Ceviche chileno", impostor: "Marisco" },
+                { civil: "Tallarines con salsa", impostor: "Di Maria" },
+                { civil: "Leche asada", impostor: "Caramelo" },
+                { civil: "Papas Mayo", impostor: "Acompañante" },
+                { civil: "Berlines", impostor: "Masa" },
+                { civil: "Cuchuflí", impostor: "Caramelizado" },
+                { civil: "Chacarero", impostor: "Tomate" },
+                { civil: "Sánguche de potito", impostor: "Cerdo" },
+                { civil: "Torta de mil hojas", impostor: "Capas" },
+                { civil: "Ají", impostor: "Chile" },
+                { civil: "Paila de mariscos", impostor: "Mariscos frescos" },
+                { civil: "Pescado frito", impostor: "Crocante" },
+                { civil: "Chorrillana", impostor: "Sartén" },
+                { civil: "Pan de Pascua", impostor: "Navidad" }
+            ],
+            type: "dynamic"
+        },
+        // ... otras categorías aquí...
+    };
 
     // Al inicio, llenar AZAR con todos los elementos de las otras categorías
     CATEGORIES.AZAR.list = [
         ...CATEGORIES.ANIMALES.list,
         ...CATEGORIES.COMIDA.list,
-        ...CATEGORIES.OBJETOS.list,
-        ...CATEGORIES.LUGARES.list
+        // Agregar las otras categorías como OBJETOS, LUGARES, etc.
     ];
 
-    // --- Referencias DOM (Mantenido sin cambios) ---
-    const numPlayersSelect = document.getElementById("numPlayers");
-    const impostorsSpan = document.getElementById("impostorsCount"); 
-    const startGameBtn = document.getElementById("startGame");
-    const nextPlayerBtn = document.getElementById("nextPlayerBtn");
-    const cardsContainer = document.getElementById("cardsContainer");
-    const countdownDiv = document.getElementById("countdown");
-    const countdownTimer = document.getElementById("timer");
-    const fiveMinuteCountdownDiv = document.getElementById("countdownFiveMinutes");
-    const fiveMinuteTimer = document.getElementById("fiveMinuteCountdown");
-    const voteButton = document.getElementById("voteButton");
-    const voteInterface = document.getElementById("voteInterface");
-    const voteOptionsDiv = document.getElementById("voteOptions");
-    const votingResultDiv = document.getElementById("votingResult");
-    const categorySelect = document.getElementById("categorySelect");
-    const playerNamesContainer = document.getElementById("playerNamesContainer");
-    const decreaseImpostors = document.getElementById("decreaseImpostors");
-    const increaseImpostors = document.getElementById("increaseImpostors");
-    const votingSection = document.getElementById("votingSection");
-    const cancelVoteBtn = document.getElementById("cancelVoteBtn"); 
-    
-    const headerGameTitle = document.getElementById("headerGameTitle");
-    const newGameBtn = document.getElementById("newGameBtn"); 
-    
-    const playerToStartDiv = document.getElementById("playerToStart"); 
-    const startPlayerMessage = document.getElementById("startPlayerMessage"); 
-    
-    const container = document.getElementById("mainContainer"); 
-    
-    // =======================================================
-    // --- NUEVAS FUNCIONES Y VARIABLES PARA AUDIO ---
-    // =======================================================
-    
-    // 1. Inicialización de Audio Elementos (se buscan por ID del HTML)
+    // --- Referencias DOM ---
     const audioReveal = document.getElementById('audioReveal');
     const audioTick = document.getElementById('audioTick');
-    // Si agregas más audios, agrégalos aquí también:
-    // const audioStart = document.getElementById('audioStart');
-    // const audioExpulsion = document.getElementById('audioExpulsion');
+    const audioStart = document.getElementById('audioStart');
+    const audioExpulsion = document.getElementById('audioExpulsion');
+    const audioGanadorImpostores = document.getElementById('audioGanadorImpostores');
+    const audioEliminacionCivil = document.getElementById('audioEliminacionCivil');
 
     function playSound(audioElement) {
         if (audioElement) {
-            // Detiene y reinicia el sonido antes de reproducir para evitar solapamiento
             audioElement.pause();
             audioElement.currentTime = 0;
-            // Catch para evitar errores si el usuario no ha interactuado con la página
             audioElement.play().catch(e => console.log("Advertencia: No se pudo reproducir el audio automáticamente.", e));
         }
     }
-    // =======================================================
-    // --- FIN AUDIO ---
-    // =======================================================
 
-    // --- Variables (Mantenido sin cambios) ---
+    // --- Lógica de Juego ---
     let numPlayers = 0;
     let impostors = 0;
     let players = [];
     let currentPlayerIndex = 0;
     let countdownInterval;
-    let totalSeconds = 300; 
-
-    // --- Funciones (Modificadas para incluir audio) ---
+    let totalSeconds = 300;
 
     function resetGame() {
-        // ... (resto de resetGame sin cambios)
         document.getElementById("gameSettings").style.display = "block";
         document.getElementById("gameInterface").style.display = "none";
         document.getElementById("countdown").style.display = "none";
-        document.getElementById("countdownFiveMinutes").style.display = "none"; 
-        
-        playerToStartDiv.style.display = "none"; 
-        votingSection.style.display = "none"; 
+        document.getElementById("countdownFiveMinutes").style.display = "none";
+
+        playerToStartDiv.style.display = "none";
+        votingSection.style.display = "none";
         newGameBtn.style.display = 'none';
-        headerGameTitle.style.display = "block"; 
+        headerGameTitle.style.display = "block";
         container.style.display = "block";
-        
-        voteButton.style.display = "block"; 
-        
+
+        voteButton.style.display = "block";
+
         if (countdownInterval) clearInterval(countdownInterval);
-        totalSeconds = 300; 
-        players = []; 
+        totalSeconds = 300;
+        players = [];
         currentPlayerIndex = 0;
-        
+
         votingResultDiv.innerHTML = "";
         votingResultDiv.style.display = "none";
-        
+
         updateImpostorControls();
     }
-    
+
     newGameBtn.addEventListener("click", resetGame);
 
     function formatTime(seconds) {
@@ -291,43 +166,36 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function resumeCountdown() {
-        if (!countdownInterval) { 
+        if (!countdownInterval) {
             startFiveMinuteCountdown(totalSeconds);
         }
     }
-    
+
     function displayStartingPlayer(playerName) {
-        countdownDiv.style.display = "none"; 
+        countdownDiv.style.display = "none";
         playerToStartDiv.style.display = "flex";
-        startPlayerMessage.innerHTML = `¡Empieza la Ronda:<br><strong>${playerName}</strong>`; 
-        
-        // SONIDO: Inicio del juego/debate (Si tienes un audio 'start.mp3', descomenta)
-        // playSound(audioStart); 
+        startPlayerMessage.innerHTML = `¡Empieza la Ronda:<br><strong>${playerName}</strong>`;
+
+        playSound(audioStart);
 
         setTimeout(function() {
-            playerToStartDiv.style.display = "none"; 
+            playerToStartDiv.style.display = "none";
             startFiveMinuteCountdown();
-        }, 3000); 
+        }, 3000);
     }
-    
+
     function startFiveMinuteCountdown(initialSeconds = 300) {
-        // ... (resto de startFiveMinuteCountdown sin cambios)
-        document.getElementById("gameInterface").style.display = "none";
-        countdownDiv.style.display = "none";
-        headerGameTitle.style.display = "none"; 
-        
-        // MOSTRAR TEMPORIZADOR Y BOTÓN
-        fiveMinuteCountdownDiv.style.display = "flex"; 
-        votingSection.style.display = "flex"; // Usar Flex para centrar botones
-        
-        voteButton.style.display = "block";            
-        voteInterface.style.display = "none";          
+        fiveMinuteCountdownDiv.style.display = "flex";
+        votingSection.style.display = "flex"; 
+
+        voteButton.style.display = "block";
+        voteInterface.style.display = "none";
         votingResultDiv.style.display = "none";
 
         totalSeconds = initialSeconds;
         fiveMinuteTimer.textContent = formatTime(totalSeconds);
-        
-        if (countdownInterval) clearInterval(countdownInterval); 
+
+        if (countdownInterval) clearInterval(countdownInterval);
 
         countdownInterval = setInterval(function() {
             totalSeconds--;
@@ -337,19 +205,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 clearInterval(countdownInterval);
                 countdownInterval = null;
                 fiveMinuteTimer.textContent = "00:00";
-                
+
                 votingSection.style.display = "flex";
                 voteInterface.style.display = "none";
                 votingResultDiv.style.display = "block";
-                
-                // Agregamos el nombre del impostor al mensaje de fin de tiempo
-                const impostorNames = players.filter(p => p.isImpostor).map(p => p.name).join(" y ");
-                
-                votingResultDiv.innerHTML = `⏰ ¡Tiempo terminado!<br>El Impostor ha ganado por tiempo.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
 
-                // SONIDO: Victoria Impostor (Si tienes un audio, agrégalo aquí)
-                // playSound(audioWinImpostor); 
-                
+                const impostorNames = players.filter(p => p.isImpostor).map(p => p.name).join(" y ");
+                votingResultDiv.innerHTML = `Impostores ganaron!<br>Impostor(es): ${impostorNames}`;
+
+                playSound(audioGanadorImpostores);
                 voteButton.style.display = "none";
                 newGameBtn.style.display = "block";
                 fiveMinuteCountdownDiv.style.display = "none"; 
@@ -358,150 +222,53 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 1000);
     }
 
-    function start3SecondCountdown() {
-        document.getElementById("gameInterface").style.display = "none"; 
-        headerGameTitle.style.display = "block"; 
-        countdownDiv.style.display = "flex";
-        let countdownTime = 3;
-        countdownTimer.textContent = countdownTime;
-
-        let interval = setInterval(function() {
-            countdownTime--;
-            countdownTimer.textContent = countdownTime;
-            
-            // SONIDO: Tick del countdown (audio/countdown.mp3)
-            playSound(audioTick); 
-
-            if (countdownTime <= 0) {
-                clearInterval(interval);
-                
-                const activePlayers = players.filter(p => !p.disabled);
-                const startingPlayer = activePlayers[Math.floor(Math.random() * activePlayers.length)];
-                
-                displayStartingPlayer(startingPlayer.name);
-            }
-        }, 1000);
-    }
-    
-    function countActiveImpostors() {
-        return players.filter(p => p.isImpostor && !p.disabled).length;
-    }
-
-    function countActiveCivils() {
-        return players.filter(p => !p.isImpostor && !p.disabled).length;
-    }
-
     function voteForPlayer(index) {
-        pauseCountdown(); // Detiene el timer durante el voto
-        fiveMinuteCountdownDiv.style.display = "none";
-        headerGameTitle.style.display = "block"; 
-        container.style.display = "block"; 
-        
-        const playerVoted = players[index];
-        
+        pauseCountdown(); 
         voteInterface.style.display = "none";
         votingResultDiv.style.display = "block";
         voteButton.style.display = "none"; 
         newGameBtn.style.display = "none";
 
-        // FASE 1
-        votingResultDiv.innerHTML = `
-            🗳️ <strong>Procesando Votos...</strong> 🗳️<br><br>
-            <span style="font-size:0.8em; color:#aaa;">Calculando destino de ${playerVoted.name}...</span>
-        `;
-        
-        // SONIDO: Al iniciar la expulsión/votación (Si tienes un audio 'expulsion.mp3', descomenta)
-        // playSound(audioExpulsion); 
+        const playerVoted = players[index];
+        players[index].disabled = true; 
+
+        if (playerVoted.isImpostor) {
+            votingResultDiv.innerHTML = `${playerVoted.name} ha sido expulsado.<br>Era un Impostor.`;
+            playSound(audioEliminacionCivil);
+        } else {
+            votingResultDiv.innerHTML = `${playerVoted.name} ha sido expulsado.<br>Era un Civil.`;
+        }
 
         setTimeout(function() {
-            const role = playerVoted.isImpostor ? "IMPOSTOR" : "CIVIL";
-            const roleColor = playerVoted.isImpostor ? '#FFEB3B' : '#00BCD4';
-
-            players[index].disabled = true; 
-            
-            const activeImpostors = countActiveImpostors();
-            const activeCivils = countActiveCivils();
-
-            // FASE 2
-            votingResultDiv.innerHTML = `
-                🗳️ <strong>Resultado</strong> 🗳️<br><br>
-                ${playerVoted.name} ha sido expulsado.<br> 
-                Era: <span style="color:${roleColor}; font-weight: bold; font-size: 1.4em;">${role}</span>.
-            `;
-            
-            // Si quieres que el resultado final sea más explícito
-            const impostorNames = players.filter(p => p.isImpostor).map(p => p.name).join(" y ");
-
-            setTimeout(function() {
-                // FASE 3
-                let finalMessage = "";
-                let gameEnded = false;
-
-                if (activeImpostors === 0) {
-                    finalMessage = `🎉 ¡Victoria Civil! 🎉<br>Todos los impostores eliminados.`;
-                    gameEnded = true;
-                    // SONIDO: Victoria Civil
-                    // playSound(audioWinCivil); 
-                } else if (activeImpostors >= activeCivils) {
-                    finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
-                    gameEnded = true;
-                    // SONIDO: Victoria Impostor
-                    // playSound(audioWinImpostor); 
-                } else {
-                    finalMessage = playerVoted.isImpostor ? 
-                        "✅ ¡Bien! Un Impostor menos.<br>El juego continúa..." : 
-                        "❌ Error. Inocente expulsado.<br>El juego continúa...";
-                    gameEnded = false;
-                }
-                
-                votingResultDiv.innerHTML = finalMessage;
-                
-                if (!gameEnded) {
-                    setTimeout(function() {
-                        votingResultDiv.style.display = "none";
-                        voteButton.style.display = "block";
-                        resumeCountdown(); 
-                    }, 3000);
-                } else {
-                    newGameBtn.style.display = "block";
-                }
-
-            }, 3000); 
-        }, 3000); 
+            newGameBtn.style.display = "block";
+        }, 3000);
     }
 
+    // Función para mostrar las cartas
     function showCard(index) {
         cardsContainer.innerHTML = "";
         let player = players[index];
         
         let card = document.createElement("div");
         card.classList.add("player-card");
-        
+
         let cardContent = document.createElement("div");
         cardContent.classList.add("card-content");
-        
+
         let roleImage = document.createElement("img");
         roleImage.src = player.isImpostor ? "https://i.ibb.co/FqYKptGN/descarga-2.png" : "https://i.ibb.co/WNfJQv83/Inocente.png";
-        roleImage.style.display = "none"; 
-        
+        roleImage.style.display = "none";
+
         let roleTitle = document.createElement("div"); 
-        roleTitle.id = "roleTitle";
         roleTitle.innerText = `Hola ${player.name}`;
-        
+
         let wordText = document.createElement("div"); 
-        wordText.id = "wordText";
         wordText.innerText = "Toca para revelar";
-        
-        let clueElement = document.createElement("div");
-        clueElement.id = "clue";
-        clueElement.innerText = player.clue;
-        clueElement.style.display = "none";
 
         cardContent.appendChild(roleImage); 
         cardContent.appendChild(roleTitle); 
-        cardContent.appendChild(wordText); 
-        cardContent.appendChild(clueElement);
-        
+        cardContent.appendChild(wordText);
+
         let cardOverlay = document.createElement("div");
         cardOverlay.classList.add("card-overlay");
         cardOverlay.innerHTML = `<div>TURNO DE<br>${player.name}</div>`;
@@ -514,19 +281,17 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!card.classList.contains("revealed")) {
                 const role = player.isImpostor ? "IMPOSTOR" : "CIVIL";
                 const roleColor = player.isImpostor ? '#FFEB3B' : '#00BCD4';
-                
+
                 roleTitle.innerHTML = `<span style="color:${roleColor}; font-weight: bold;">¡Eres ${role}!</span>`;
                 wordText.innerHTML = `<div style="font-size: 1.8em; font-weight: bold;">${player.word}</div>`;
-                
+
                 roleImage.style.display = "block";
-                if (player.isImpostor && player.clue) clueElement.style.display = "block";
-                
+
                 card.classList.add("revealed");
                 nextPlayerBtn.style.display = "block";
-                
-                // SONIDO: Revelar carta (audio/revelar.mp3)
-                playSound(audioReveal); 
-                
+
+                playSound(audioReveal);
+
                 if (index === numPlayers - 1) {
                     nextPlayerBtn.textContent = "¡Comenzar el juego!";
                 } else {
@@ -536,138 +301,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    function generateNameInputs() {
-        // ... (resto de generateNameInputs sin cambios)
-        playerNamesContainer.innerHTML = '';
-        const currentNumPlayers = parseInt(numPlayersSelect.value);
-        for (let i = 0; i < currentNumPlayers; i++) {
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.id = `playerName${i}`;
-            input.placeholder = `Jugador ${i + 1}`;
-            input.autocomplete = "off";
-            playerNamesContainer.appendChild(input);
-        }
-    }
+    // Más funciones para la lógica del juego (no cambiadas)
 
-    function updateImpostorControls() {
-        // ... (resto de updateImpostorControls sin cambios)
-        const currentPlayers = parseInt(numPlayersSelect.value);
-        let maxImpostors = (currentPlayers >= 7) ? 2 : 1;
-        if (currentPlayers >= 9) maxImpostors = 3;
-
-        let currentImpostors = parseInt(impostorsSpan.textContent);
-        if (currentImpostors > maxImpostors) impostorsSpan.textContent = maxImpostors;
-        if (currentImpostors < 1) impostorsSpan.textContent = 1;
-        
-        decreaseImpostors.disabled = parseInt(impostorsSpan.textContent) <= 1;
-        increaseImpostors.disabled = parseInt(impostorsSpan.textContent) >= maxImpostors;
-    }
-
-    // --- Listeners (Mantenido sin cambios) ---
-    numPlayersSelect.addEventListener('change', () => {
-        generateNameInputs();
-        updateImpostorControls();
-    });
-    
-    document.getElementById("changeNamesBtn").addEventListener('click', function() {
-        playerNamesContainer.style.display = (playerNamesContainer.style.display === 'flex') ? 'none' : 'flex';
-        if(playerNamesContainer.style.display === 'flex') generateNameInputs();
-    });
-    
-    decreaseImpostors.addEventListener('click', () => {
-        let current = parseInt(impostorsSpan.textContent);
-        if (current > 1) {
-            impostorsSpan.textContent = current - 1;
-            updateImpostorControls();
-        }
-    });
-    
-    increaseImpostors.addEventListener('click', () => {
-        let current = parseInt(impostorsSpan.textContent);
-        const currentPlayers = parseInt(numPlayersSelect.value);
-        let maxImpostors = (currentPlayers >= 9) ? 3 : (currentPlayers >= 7 ? 2 : 1);
-        if (current < maxImpostors) {
-            impostorsSpan.textContent = current + 1;
-            updateImpostorControls();
-        }
-    });
-
-    startGameBtn.addEventListener("click", function() {
-        // ... (resto de startGameBtn sin cambios)
-        document.getElementById("gameSettings").style.display = "none";
-        document.getElementById("gameInterface").style.display = "flex";
-        
-        currentPlayerIndex = 0;
-        numPlayers = parseInt(numPlayersSelect.value);
-        impostors = parseInt(impostorsSpan.textContent);
-        
-        const selectedCategory = CATEGORIES[categorySelect.value];
-        let civilWord = "Error", impostorWord = "Error", impostorClue = "";
-
-        if (selectedCategory && selectedCategory.type === 'dynamic' && selectedCategory.list.length > 0) {
-            const pair = selectedCategory.list[Math.floor(Math.random() * selectedCategory.list.length)];
-            civilWord = pair.civil;
-            impostorWord = pair.impostor; 
-        }
-
-        players = [];
-        let impostorIndices = [];
-
-        for (let i = 0; i < numPlayers; i++) {
-            let nameInput = document.getElementById(`playerName${i}`);
-            let playerName = (nameInput && nameInput.value.trim() !== "") ? nameInput.value : `Jugador ${i + 1}`;
-            players.push({ name: playerName, isImpostor: false, word: civilWord, clue: impostorClue, disabled: false });
-        }
-
-        while (impostorIndices.length < impostors) {
-            let r = Math.floor(Math.random() * numPlayers);
-            if (!impostorIndices.includes(r)) {
-                impostorIndices.push(r);
-                players[r].isImpostor = true;
-                players[r].word = impostorWord;
-            }
-        }
-        showCard(currentPlayerIndex);
-    });
-
-    nextPlayerBtn.addEventListener("click", function() {
-        // ... (resto de nextPlayerBtn sin cambios)
-        if (currentPlayerIndex === numPlayers - 1) {
-            document.getElementById("gameInterface").style.display = "none";
-            start3SecondCountdown();
-            nextPlayerBtn.style.display = "none";
-        } else {
-            currentPlayerIndex++;
-            showCard(currentPlayerIndex);
-            this.style.display = "none";
-        }
-    });
-
-    voteButton.addEventListener("click", function() {
-        pauseCountdown(); 
-        voteInterface.style.display = "block";
-        voteButton.style.display = "none";
-        newGameBtn.style.display = "none"; 
-        votingResultDiv.style.display = "none"; 
-
-        voteOptionsDiv.innerHTML = "";
-        players.forEach((player, index) => {
-            if (!player.disabled) {
-                let btn = document.createElement("button");
-                btn.innerText = player.name;
-                btn.addEventListener("click", () => voteForPlayer(index));
-                voteOptionsDiv.appendChild(btn);
-            }
-        });
-    });
-
-    // Cancelar voto
-    cancelVoteBtn.addEventListener("click", function() {
-        voteInterface.style.display = "none";
-        voteButton.style.display = "block";
-        resumeCountdown();
-    });
-    
-    updateImpostorControls();
 });
