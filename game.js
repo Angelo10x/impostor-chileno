@@ -221,11 +221,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- INICIALIZACIÓN DE AUDIO ---
     // =======================================================
     
-    // 1. Inicialización de Audio Elementos (Deben estar en index.html)
     const audioReveal = document.getElementById('audioReveal');
     const audioTick = document.getElementById('audioTick');
-    const audioExpulsion = document.getElementById('audioExpulsion'); // eliminacion_civil.mp3
-    const audioWinImpostor = document.getElementById('audioWinImpostor'); // ganador_impostores.mp3
+    const audioExpulsion = document.getElementById('audioExpulsion'); 
+    const audioWinImpostor = document.getElementById('audioWinImpostor');
+    const audioLoseImpostor = document.getElementById('audioLoseImpostor'); // NUEVO AUDIO
 
     function playSound(audioElement) {
         if (audioElement) {
@@ -421,9 +421,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 Era: <span style="color:${roleColor}; font-weight: bold; font-size: 1.4em;">${role}</span>.
             `;
 
-            // Lógica corregida para eliminacion_civil.mp3: Solo si NO es impostor Y hay 4 o más jugadores iniciales.
-            if (!playerVoted.isImpostor && players.length >= 4) {
-                 // SONIDO: Eliminación Civil (audio/eliminacion_civil.mp3)
+            // Lógica de Audio para la eliminación (FASE 2)
+            if (playerVoted.isImpostor) {
+                 // SONIDO: Perdedor Impostor (Al eliminar a un Impostor)
+                playSound(audioLoseImpostor); 
+            } else if (!playerVoted.isImpostor && players.length >= 4) {
+                 // SONIDO: Eliminación Civil (Solo si NO es impostor Y hay 4 o más jugadores iniciales)
                 playSound(audioExpulsion); 
             }
             
@@ -431,18 +434,20 @@ document.addEventListener("DOMContentLoaded", function() {
             const impostorNames = players.filter(p => p.isImpostor).map(p => p.name).join(" y ");
 
             setTimeout(function() {
-                // FASE 3
+                // FASE 3: Determinar el final del juego
                 let finalMessage = "";
                 let gameEnded = false;
 
                 if (activeImpostors === 0) {
                     finalMessage = `🎉 ¡Victoria Civil! 🎉<br>Todos los impostores eliminados.`;
                     gameEnded = true;
-                    // SONIDO: Victoria Civil (Si tienes un audio, agrégalo aquí)
+                    // SONIDO: Perdedor Impostor (Los civiles ganan, los impostores pierden)
+                    // Ya se reprodujo si fue el último eliminado, pero lo reforzamos aquí
+                    playSound(audioLoseImpostor); 
                 } else if (activeImpostors >= activeCivils) {
                     finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
                     gameEnded = true;
-                    // SONIDO: Victoria Impostor (audio/ganador_imposostores.mp3) - Lógica corregida
+                    // SONIDO: Victoria Impostor
                     playSound(audioWinImpostor); 
                 } else {
                     finalMessage = playerVoted.isImpostor ? 
