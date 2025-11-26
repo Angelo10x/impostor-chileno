@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const audioTick = document.getElementById('audioTick');
     const audioExpulsion = document.getElementById('audioExpulsion'); 
     const audioWinImpostor = document.getElementById('audioWinImpostor');
-    const audioLoseImpostor = document.getElementById('audioLoseImpostor'); // NUEVO AUDIO
+    const audioLoseImpostor = document.getElementById('audioLoseImpostor'); 
 
     function playSound(audioElement) {
         if (audioElement) {
@@ -441,8 +441,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (activeImpostors === 0) {
                     finalMessage = `🎉 ¡Victoria Civil! 🎉<br>Todos los impostores eliminados.`;
                     gameEnded = true;
-                    // SONIDO: Perdedor Impostor (Los civiles ganan, los impostores pierden)
-                    // **CORRECCIÓN:** Aseguramos que el audio suene en este punto
+                    // **CORRECCIÓN FINAL:** Aseguramos que el audio suene en el momento de la victoria civil
                     playSound(audioLoseImpostor); 
                 } else if (activeImpostors >= activeCivils) {
                     finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
