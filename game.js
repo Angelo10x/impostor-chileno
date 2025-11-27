@@ -240,15 +240,25 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- FIN AUDIO ---
     // =======================================================
 
-    // --- Variables (Mantenido sin cambios) ---
+    // --- Variables ---
     let numPlayers = 0;
     let impostors = 0;
     let players = [];
     let currentPlayerIndex = 0;
     let countdownInterval;
     let totalSeconds = 300; 
+    let lastStartingPlayerName = ""; // Variable para evitar que repita el mismo jugador al inicio
 
-    // --- Funciones (Modificadas para incluir audio) ---
+    // --- Función de Barajado (Fisher-Yates) para verdadera aleatoriedad ---
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // --- Funciones (Modificadas para incluir audio y lógica aleatoria) ---
 
     function resetGame() {
         // ... (resto de resetGame sin cambios)
@@ -370,8 +380,23 @@ document.addEventListener("DOMContentLoaded", function() {
             if (countdownTime <= 0) {
                 clearInterval(interval);
                 
+                // --- LÓGICA DE SELECCIÓN DE JUGADOR INICIAL MEJORADA ---
                 const activePlayers = players.filter(p => !p.disabled);
-                const startingPlayer = activePlayers[Math.floor(Math.random() * activePlayers.length)];
+                let candidates = activePlayers;
+
+                // Si hay suficientes jugadores, intentamos que no repita el que empezó la vez pasada
+                if (lastStartingPlayerName && activePlayers.length > 1) {
+                    const filtered = activePlayers.filter(p => p.name !== lastStartingPlayerName);
+                    if (filtered.length > 0) {
+                        candidates = filtered;
+                    }
+                }
+
+                // Selección aleatoria usando array real y Math.random
+                const startingPlayer = candidates[Math.floor(Math.random() * candidates.length)];
+                
+                // Guardamos quién empezó para la próxima
+                lastStartingPlayerName = startingPlayer.name;
                 
                 displayStartingPlayer(startingPlayer.name);
             }
@@ -441,7 +466,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (activeImpostors === 0) {
                     finalMessage = `🎉 ¡Victoria Civil! 🎉<br>Todos los impostores eliminados.`;
                     gameEnded = true;
-                    // **CORRECCIÓN FINAL:** Aseguramos que el audio suene en el momento de la victoria civil
                     playSound(audioLoseImpostor); 
                 } else if (activeImpostors >= activeCivils) {
                     finalMessage = `😈 ¡Victoria Impostor! 😈<br>Impostores dominan la nave.<br><br>Impostor(es): <span style="color:#FFEB3B; font-weight:bold; font-size:1.2em;">${impostorNames}</span>`;
@@ -613,22 +637,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         players = [];
-        let impostorIndices = [];
-
+        
+        // 1. Crear jugadores básicos
         for (let i = 0; i < numPlayers; i++) {
             let nameInput = document.getElementById(`playerName${i}`);
             let playerName = (nameInput && nameInput.value.trim() !== "") ? nameInput.value : `Jugador ${i + 1}`;
             players.push({ name: playerName, isImpostor: false, word: civilWord, clue: impostorClue, disabled: false });
         }
 
-        while (impostorIndices.length < impostors) {
-            let r = Math.floor(Math.random() * numPlayers);
-            if (!impostorIndices.includes(r)) {
-                impostorIndices.push(r);
-                players[r].isImpostor = true;
-                players[r].word = impostorWord;
-            }
+        // 2. Asignar Impostores usando Fisher-Yates para asegurar distribución uniforme
+        // Creamos un array de índices [0, 1, 2, ... n]
+        let indices = Array.from({length: numPlayers}, (_, i) => i);
+        // Lo barajamos completamente
+        indices = shuffleArray(indices);
+        
+        // Tomamos los primeros X índices para ser impostores
+        for (let i = 0; i < impostors; i++) {
+            let impostorIndex = indices[i];
+            players[impostorIndex].isImpostor = true;
+            players[impostorIndex].word = impostorWord;
         }
+
         showCard(currentPlayerIndex);
     });
 
