@@ -45,6 +45,12 @@ body {
   z-index: 10; 
   /* Espacio inferior extra para que el botón flotante no tape contenido al hacer scroll */
   padding-bottom: 80px; 
+  
+  /* Permite flexbox para centrar contenido cuando no hay mucho */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
 }
 
 /* --- TEMPORIZADOR FULL SCREEN --- */
@@ -188,6 +194,16 @@ body {
     box-shadow: 0 0 30px rgba(0,0,0,0.9);
     margin-bottom: 20px;
     color: white;
+    
+    /* NUEVOS ESTILOS PARA CENTRADO Y TAMAÑO */
+    display: flex; /* Usar flexbox para centrar contenido interno */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente el texto */
+    align-items: center; /* Centrar horizontalmente el texto */
+    height: 100%; /* Ocupar toda la altura disponible del contenedor padre */
+    flex-grow: 1; /* Permitir que crezca y ocupe el espacio */
+    font-size: 1.5em; /* Aumentar el tamaño de fuente para que destaque */
+    padding: 30px; /* Más padding para que no se vea tan apretado */
 }
 
 /* --- HEADER Y SETTINGS --- */
