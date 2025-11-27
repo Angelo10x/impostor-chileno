@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentPlayerIndex = 0;
     let countdownInterval;
     let totalSeconds = 300; 
-    let lastStartingPlayerName = ""; // Variable para evitar que repita el mismo jugador al inicio
+    let lastStartingPlayerName = ""; 
 
     // --- Función de Barajado (Fisher-Yates) para verdadera aleatoriedad ---
     function shuffleArray(array) {
@@ -258,10 +258,9 @@ document.addEventListener("DOMContentLoaded", function() {
         return array;
     }
 
-    // --- Funciones (Modificadas para incluir audio y lógica aleatoria) ---
+    // --- Funciones (Mantenidas sin cambios relevantes, excepto start3SecondCountdown) ---
 
     function resetGame() {
-        // ... (resto de resetGame sin cambios)
         document.getElementById("gameSettings").style.display = "block";
         document.getElementById("gameInterface").style.display = "none";
         document.getElementById("countdown").style.display = "none";
@@ -363,6 +362,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 1000);
     }
 
+    /**
+     * CORRECCIÓN APLICADA: El audio se inicia inmediatamente con el número 3,
+     * eliminando el retraso de 1 segundo.
+     */
     function start3SecondCountdown() {
         document.getElementById("gameInterface").style.display = "none"; 
         headerGameTitle.style.display = "block"; 
@@ -370,8 +373,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let countdownTime = 3;
         countdownTimer.textContent = countdownTime;
 
-        // --- CORRECCIÓN DE AUDIO ---
-        // Reproducir el sonido inmediatamente para el número 3
+        // --- FIX: Reproducir el sonido inmediatamente para el número 3 ---
         playSound(audioTick);
 
         let interval = setInterval(function() {
@@ -563,7 +565,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function generateNameInputs() {
-        // ... (resto de generateNameInputs sin cambios)
         playerNamesContainer.innerHTML = '';
         const currentNumPlayers = parseInt(numPlayersSelect.value);
         for (let i = 0; i < currentNumPlayers; i++) {
@@ -577,7 +578,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function updateImpostorControls() {
-        // ... (resto de updateImpostorControls sin cambios)
         const currentPlayers = parseInt(numPlayersSelect.value);
         let maxImpostors = (currentPlayers >= 7) ? 2 : 1;
         if (currentPlayers >= 9) maxImpostors = 3;
@@ -620,7 +620,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     startGameBtn.addEventListener("click", function() {
-        // ... (resto de startGameBtn sin cambios)
         document.getElementById("gameSettings").style.display = "none";
         document.getElementById("gameInterface").style.display = "flex";
         
@@ -647,12 +646,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // 2. Asignar Impostores usando Fisher-Yates para asegurar distribución uniforme
-        // Creamos un array de índices [0, 1, 2, ... n]
         let indices = Array.from({length: numPlayers}, (_, i) => i);
-        // Lo barajamos completamente
         indices = shuffleArray(indices);
         
-        // Tomamos los primeros X índices para ser impostores
         for (let i = 0; i < impostors; i++) {
             let impostorIndex = indices[i];
             players[impostorIndex].isImpostor = true;
@@ -663,7 +659,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     nextPlayerBtn.addEventListener("click", function() {
-        // ... (resto de nextPlayerBtn sin cambios)
         if (currentPlayerIndex === numPlayers - 1) {
             document.getElementById("gameInterface").style.display = "none";
             start3SecondCountdown();
