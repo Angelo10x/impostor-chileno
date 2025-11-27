@@ -370,17 +370,22 @@ document.addEventListener("DOMContentLoaded", function() {
         let countdownTime = 3;
         countdownTimer.textContent = countdownTime;
 
+        // --- CORRECCIÓN DE AUDIO ---
+        // Reproducir el sonido inmediatamente para el número 3
+        playSound(audioTick);
+
         let interval = setInterval(function() {
             countdownTime--;
-            countdownTimer.textContent = countdownTime;
             
-            // SONIDO: Tick del countdown (audio/countdown.mp3)
-            playSound(audioTick); 
-
-            if (countdownTime <= 0) {
+            // Solo actualizamos y reproducimos si el tiempo es mayor a 0 (para el 2 y el 1)
+            if (countdownTime > 0) {
+                countdownTimer.textContent = countdownTime;
+                playSound(audioTick); 
+            } else {
+                // Cuando llega a 0, detenemos el intervalo e iniciamos el juego
                 clearInterval(interval);
                 
-                // --- LÓGICA DE SELECCIÓN DE JUGADOR INICIAL MEJORADA ---
+                // --- LÓGICA DE SELECCIÓN DE JUGADOR INICIAL ---
                 const activePlayers = players.filter(p => !p.disabled);
                 let candidates = activePlayers;
 
@@ -392,12 +397,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
 
-                // Selección aleatoria usando array real y Math.random
                 const startingPlayer = candidates[Math.floor(Math.random() * candidates.length)];
-                
-                // Guardamos quién empezó para la próxima
                 lastStartingPlayerName = startingPlayer.name;
-                
                 displayStartingPlayer(startingPlayer.name);
             }
         }, 1000);
